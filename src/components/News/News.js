@@ -12,10 +12,22 @@ class News extends Component {
 
     componentDidMount() {
         const url = 'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=88b6436c3a974d07a400c9a2900adc02';
-    }
+
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                this.setState({
+                    news: data.articles
+                })
+            })
+            .catch((error) => console.log('ERROR',error));
+        }
+    
 
     renderItems() {
-        return this.props.items.map((item) => (
+        return this.state.news.map((item) => (
             <NewSingle key={item.id} item={item} />
         ));
     }
