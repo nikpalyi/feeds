@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 import SingleSide from './SingleSide';
 
 
-
 class SideNews extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            sidenews: []
-         
-        
+            sidenews: []       
         };
     }
 
     componentDidMount() {
     
-        }
+    }
     
 
     renderItems() {
